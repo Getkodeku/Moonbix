@@ -15,10 +15,12 @@ from bot.utils import logger
 from bot.core.tapper import run_tapper
 from bot.core.registrator import register_sessions
 
-curr_version = "1.5.1"
+curr_version = "1.1.0"
 
 
-version = requests.get("https://raw.githubusercontent.com/vanhbakaa/moonbix-bot/refs/heads/main/version")
+version = requests.get(
+    "https://raw.githubusercontent.com/vanhbakaa/moonbix-bot/refs/heads/main/version"
+)
 version_ = version.text.strip()
 if curr_version == version_:
     logger.info("<cyan>Your version is up to date!</cyan>")
@@ -28,12 +30,7 @@ else:
 start_text = f"""
 
 Version: {curr_version} 
-  ____           _   _              __  __
- |  _ \    ___  | | | |_    __ _    \ \/ /
- | | | |  / _ \ | | | __|  / _` |    \  / 
- | |_| | |  __/ | | | |_  | (_| |    /  \ 
- |____/   \___| |_|  \__|  \__,_|   /_/\_\
-                                                                                                                                                                                   
+By: https://github.com/vanhbakaa                                                                                                                                                                                         
 Select an action:
 
     1. Run clicker
@@ -42,11 +39,10 @@ Select an action:
 
 global tg_clients
 
+
 def get_session_names() -> list[str]:
     session_names = sorted(glob.glob("sessions/*.session"))
-    session_names = [
-        os.path.splitext(os.path.basename(file))[0] for file in session_names
-    ]
+    session_names = [os.path.splitext(os.path.basename(file))[0] for file in session_names]
 
     return session_names
 

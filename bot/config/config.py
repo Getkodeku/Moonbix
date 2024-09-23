@@ -7,8 +7,9 @@ class Settings(BaseSettings):
     API_ID: int
     API_HASH: str
 
-
-    REF_LINK: str = "https://t.me/Binance_Moonbix_bot/start?startApp=ref_5466401085&startapp=ref_5466401085&utm_medium=web_share_copy"
+    REF_LINK: str = (
+        "https://t.me/Binance_Moonbix_bot/start?startApp=ref_5466401085&startapp=ref_5466401085&utm_medium=web_share_copy"
+    )
     AUTO_TASK: bool = True
     AUTO_PLAY_GAME: bool = True
 
@@ -16,4 +17,3 @@ class Settings(BaseSettings):
 
 
 settings = Settings()
-
